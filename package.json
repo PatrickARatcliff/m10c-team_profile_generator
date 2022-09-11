@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap-icons": "^1.9.1",
     "inquirer": "8.2.4"
   },
   "bugs": {
