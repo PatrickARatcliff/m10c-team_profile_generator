@@ -6,51 +6,51 @@ const Intern = require('./lib/Intern');
 //initialize team member array
 let team = [];
 //create html cards for different sub-classes of employees
-const managerCard = `<div class="card" style="width: 18rem;">
+const managerCard = (teamMember) => { return `<div class="card" style="width: 18rem;">
 <div class="card-header">
     <h3><i class="bi bi-cup-hot-fill"></i> Manager</h3>
-    <h5>${manager.name}</h5>
+    <h5>${teamMember.name}</h5>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID#: ${manager.id}</li>
-  <li class="list-group-item">Email: ${manager.email}</li>
-  <li class="list-group-item">Office#: ${manager.office}</li>
+  <li class="list-group-item">ID#: ${teamMember.id}</li>
+  <li class="list-group-item">Email: ${teamMember.email}</li>
+  <li class="list-group-item">Office#: ${teamMember.office}</li>
 </ul>
 </div>
-`;
-const engineerCard = `<div class="card" style="width: 18rem;">
+`; }
+const engineerCard = (teamMember) => { return `<div class="card" style="width: 18rem;">
 <div class="card-header">
     <h3><i class="bi bi-wrench-adjustable-circle-fill"></i> Engineer</h3>
-    <h5>${engineer.name}</h5>
+    <h5>${teamMember.name}</h5>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${engineer.id}</li>
-  <li class="list-group-item">Email: ${engineer.email}</li>
-  <li class="list-group-item">Github Username: ${engineer.username}</li>
+  <li class="list-group-item">ID: ${teamMember.id}</li>
+  <li class="list-group-item">Email: ${teamMember.email}</li>
+  <li class="list-group-item">Github Username: ${teamMember.username}</li>
 </ul>
 </div>
-`;
-const internCard = `<div class="card" style="width: 18rem;">
+`; }
+const internCard = (teamMember) => { return`<div class="card" style="width: 18rem;">
 <div class="card-header">
     <h3><i class="bi bi-mortarboard-fill"></i> Intern</h3>
-    <h5>${intern.name}</h5>
+    <h5>${teamMember.name}</h5>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${intern.id}</li>
-  <li class="list-group-item">Email: ${intern.email}</li>
-  <li class="list-group-item">School: ${intern.school}</li>
+  <li class="list-group-item">ID: ${teamMember.id}</li>
+  <li class="list-group-item">Email: ${teamMember.email}</li>
+  <li class="list-group-item">School: ${teamMember.school}</li>
 </ul>
 </div>
-`;
-//creat template literal html code based on members in team array
+`; }
+//create template literal html code based on members in team array
 generateTeamPageHtml = (team) => {
     let buildTeam;
     let teamHtml = buildTeam.join('');
     for (let i = 0; i < team.length; i++) {
         const member = team[i];
-        member.getRole() === "manager" ? buildTeam.push(managerCard) :
-            member.getRole() === "engineer" ? buildTeam.push(engineerCard) :
-                member.getRole() === "intern" ? buildTeam.push(internCard) : console.log("No team members");
+        member.getRole() === "manager" ? buildTeam.push(managerCard(member)) :
+            member.getRole() === "engineer" ? buildTeam.push(engineerCard(member)) :
+                member.getRole() === "intern" ? buildTeam.push(internCard(member)) : console.log("No team members");
     }
     return `<!DOCTYPE html>
     <html lang="en">
