@@ -83,7 +83,7 @@ const choiceQuestion = () => {
             type: 'list',
             message: "What would you like to do next?",
             name: 'choice',
-            choices: ["Add an Engineer", "Add an Intern", "Finish building team"],
+            choices: ["Add an Engineer", "Add an Intern", "Finish building Team"],
         }
     ])
         .then(choice => {
@@ -91,16 +91,12 @@ const choiceQuestion = () => {
                 case "Add an Engineer":
                     //inquirer questions for engineer
                     engineerQuestions();
-                    //push new engineer to team array
-                    team.push(engineer);
                      //loop back through options
                     choiceQuestion();
                     break;
                 case "Add an Intern":
                     //inquirer questions for intern
                     internQuestions();
-                    //push new intern to team array
-                    team.push(intern);
                     //loop back through options
                     choiceQuestion();
                     break;
