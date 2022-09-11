@@ -1,8 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
+const {managerQuestions} = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
+const {engineerQuestions} = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const {internQuestions} = require('./lib/Intern');
 //initialize team member array
 let team = [];
 //create html cards for different sub-classes of employees
@@ -47,10 +50,10 @@ generateTeamPageHtml = (team) => {
     let buildTeam;
     let teamHtml = buildTeam.join('');
     for (let i = 0; i < team.length; i++) {
-        const member = team[i];
-        member.getRole() === "manager" ? buildTeam.push(managerCard(member)) :
-            member.getRole() === "engineer" ? buildTeam.push(engineerCard(member)) :
-                member.getRole() === "intern" ? buildTeam.push(internCard(member)) : console.log("No team members");
+        const members = team[i];
+        members.getRole() === "manager" ? buildTeam.push(managerCard(members)) :
+            members.getRole() === "engineer" ? buildTeam.push(engineerCard(members)) :
+                members.getRole() === "intern" ? buildTeam.push(internCard(members)) : console.log("No team members");
     }
     return `<!DOCTYPE html>
     <html lang="en">
@@ -87,7 +90,7 @@ const choiceQuestion = () => {
             switch (choice) {
                 case "Add an Engineer":
                     //inquirer questions for engineer
-                    Engineer.engineerQuestions();
+                    engineerQuestions();
                     //push new engineer to team array
                     team.push(engineer);
                      //loop back through options
@@ -95,7 +98,7 @@ const choiceQuestion = () => {
                     break;
                 case "Add an Intern":
                     //inquirer questions for intern
-                    Intern.internQuestions();
+                    internQuestions();
                     //push new intern to team array
                     team.push(intern);
                     //loop back through options
@@ -110,8 +113,7 @@ const choiceQuestion = () => {
 }
 //Create a function to write html file
 function writeToFile(fileName) {
-
-    Manager.managerQuestions();
+    managerQuestions();
     //push new manager to team array
     team.push(manager);
     //inquirer to create new team members
