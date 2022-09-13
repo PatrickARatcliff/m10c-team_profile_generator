@@ -20,7 +20,7 @@ const managerCard = (teamMember) => {
 </div>
 <ul class="list-group list-group-flush">
   <li class="list-group-item">ID#: ${teamMember.id}</li>
-  <li class="list-group-item">Email: ${teamMember.email}</li>
+  <li class="list-group-item">Email: <a href = "mailto:${teamMember.email}">${teamMember.email}</a></li>
   <li class="list-group-item">Office#: ${teamMember.officeNumber}</li>
 </ul>
 </div>
@@ -36,9 +36,9 @@ const engineerCard = (teamMember) => {
     <h5>${teamMember.name}</h5>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${teamMember.id}</li>
-  <li class="list-group-item">Email: ${teamMember.email}</li>
-  <li class="list-group-item">Github Username: ${teamMember.gitHub}</li>
+  <li class="list-group-item">ID#: ${teamMember.id}</li>
+  <li class="list-group-item"><a href = "mailto:${teamMember.email}">${teamMember.email}</a></li>
+  <li class="list-group-item">Github Username: <a href="https://github.com/${teamMember.gitHub}" target="_blank">${teamMember.gitHub}</a></li>
 </ul>
 </div>
 `;
@@ -53,8 +53,8 @@ const internCard = (teamMember) => {
     <h5>${teamMember.name}</h5>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${teamMember.id}</li>
-  <li class="list-group-item">Email: ${teamMember.email}</li>
+  <li class="list-group-item">ID#: ${teamMember.id}</li>
+  <li class="list-group-item"><a href = "mailto:${teamMember.email}">${teamMember.email}</a></li>
   <li class="list-group-item">School: ${teamMember.school}</li>
 </ul>
 </div>
