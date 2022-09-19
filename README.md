@@ -7,7 +7,7 @@
 
 ![screenshot-1](./src/19EF59FE-9B0C-495B-9C51-4C7049DCE799.jpeg)
 
-# Link to demo video: 
+# Link to demo video: https://drive.google.com/file/d/1MOPG4QpDhVuERgwYtTRFWXuUYvTxXL8X/view
   
 ## Table of Contents
 - [Project Description](#project-description)
